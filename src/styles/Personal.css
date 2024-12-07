@@ -1,0 +1,33 @@
+#personal-cont {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+  font-size: 1.3rem;
+}
+
+#personal-cont h2 {
+  margin-bottom: 10px;
+  padding-bottom: 5px;
+  border-bottom: 1px solid var(--yellow);
+  font-size: 1.6rem;
+}
+
+#personal-cont label {
+  margin-right: 5px;
+}
+
+#personal-cont input {
+  width: 150px;
+}
+
+#personal-cont input:focus {
+  outline: 1px solid var(--yellow);
+}
+
+.input-cont:first-of-type {
+  margin-top: 0;
+}
+
+.input-cont {
+  margin-top: 5px;
+}

@@ -1,0 +1,35 @@
+:root {
+  --white: #edf2f4;
+  --gray: #8d99ae;
+  --yellow: #fca311;
+  --dark-blue: #14213d;
+  --black: #0d1b2a;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 64.5%;
+}
+
+html,
+body {
+  width: 100%;
+  min-height: 100vh;
+  background-color: var(--white);
+  font-family: "Domine", serif;
+  color: var(--dark-blue);
+}
+
+#root {
+  display: flex;
+  flex-direction: column;
+}
+
+#final-cont {
+  display: none;
+}
