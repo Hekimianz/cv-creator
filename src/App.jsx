@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Navbar from "./components/Navbar";
-import Personal from "./components/Personal";
+import Form from "./components/Form";
 
 function App() {
   const [cvInfo, setCvInfo] = useState({});
@@ -8,7 +8,7 @@ function App() {
     <>
       <Navbar />
       <section id="inputs-cont">
-        <Personal cvInfo={cvInfo} setCvInfo={setCvInfo} />
+        <Form cvInfo={cvInfo} setCvInfo={setCvInfo} />
       </section>
       <section id="final-cont"></section>
     </>

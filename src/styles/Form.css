@@ -6,21 +6,15 @@
 }
 
 #personal-cont h2 {
+  margin-top: 20px;
   margin-bottom: 10px;
   padding-bottom: 5px;
-  border-bottom: 1px solid var(--yellow);
+  border-bottom: 2px solid var(--yellow);
   font-size: 1.6rem;
 }
 
-#personal-cont label {
-  margin-right: 5px;
-}
-
-#personal-cont input {
-  width: 150px;
-}
-
-#personal-cont input:focus {
+#personal-cont input:focus,
+textarea:focus {
   outline: 1px solid var(--yellow);
 }
 
@@ -29,5 +23,17 @@
 }
 
 .input-cont {
+  width: 70%;
   margin-top: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.input-cont input {
+  width: 60%;
+}
+
+#personal-cont h2:first-of-type {
+  margin-top: 0;
 }
