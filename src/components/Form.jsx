@@ -3,6 +3,7 @@ import "../styles/Form.css";
 import add from "../assets/add.png";
 import Skills from "./Skills";
 import WorkExp from "./WorkExp";
+import Education from "./Education";
 function Personal({ cvInfo, setCvInfo }) {
   console.log(cvInfo);
   function addWork() {
@@ -11,8 +12,17 @@ function Personal({ cvInfo, setCvInfo }) {
       works: [...(prev.works || []), { id: uuidv4() }],
     }));
   }
+  function addEdu() {
+    setCvInfo((prev) => ({
+      ...prev,
+      education: [...(prev.education || []), { id: uuidv4() }],
+    }));
+  }
   const allWorks = cvInfo.works?.map((work) => (
     <WorkExp key={work.id} id={work.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
+  ));
+  const allEdu = cvInfo.education?.map((edu) => (
+    <Education key={edu.id} id={edu.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
   ));
   return (
     <div id="personal-cont">
@@ -120,6 +130,12 @@ function Personal({ cvInfo, setCvInfo }) {
         <img src={add} />
       </button>
       <div id="workExp--cont">{allWorks}</div>
+
+      <h2>Education</h2>
+      <button className="addWork--btn" onClick={addEdu}>
+        <img src={add} />
+      </button>
+      <div id="edu--cont">{allEdu}</div>
     </div>
   );
 }

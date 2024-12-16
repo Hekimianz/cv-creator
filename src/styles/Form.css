@@ -32,7 +32,8 @@ label {
 }
 
 .input-cont input,
-.workField--cont input {
+.workField--cont input,
+.eduField--cont input {
   width: 60%;
 }
 
@@ -63,7 +64,8 @@ label {
   width: 90%;
 }
 
-.workField--cont {
+.workField--cont,
+.eduField--cont {
   flex-direction: column;
   gap: 5px;
   background-color: var(--gray);
@@ -73,7 +75,8 @@ label {
   position: relative;
 }
 
-.deleteJob {
+.deleteJob,
+.deleteEdu {
   color: rgb(151, 75, 75);
   font-weight: 100;
   font-size: 1rem;
@@ -83,11 +86,13 @@ label {
   cursor: pointer;
 }
 
-.deleteJob img {
+.deleteJob img,
+.deleteEdu img {
   width: 20px;
   transition: 0.2s all;
 }
 
-.deleteJob img:hover {
+.deleteJob img:hover,
+.deleteEdu img:hover {
   transform: scale(1.3);
 }
