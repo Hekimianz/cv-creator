@@ -1,25 +1,32 @@
 import { useState } from "react";
 import "../styles/Skills.css";
 import SkillPill from "./SkillPill";
+
 function Skills({ cvInfo, setCvInfo }) {
-  const [skills, setSkills] = useState([]);
   const [currSkill, setCurrSkill] = useState("");
-  const allSkills = skills.map((skill) => {
-    return <SkillPill skill={skill} key={skill} setSkills={setSkills} />;
-  });
+
+  const allSkills = (cvInfo.skills || []).map((skill) => (
+    <SkillPill
+      skill={skill}
+      key={skill}
+      cvInfo={cvInfo}
+      setCvInfo={setCvInfo}
+    />
+  ));
+
   const handleCommaPress = (e) => {
     if (e.key === ",") {
       e.preventDefault();
-      if (skills.includes(currSkill)) return;
-      if (currSkill.trim()) {
-        const newSkils = [...skills, currSkill.trim()];
-        setSkills(newSkils);
-        setCvInfo({ ...cvInfo, skills: newSkils });
-        e.target.value = "";
+      const trimmedSkill = currSkill.trim();
+
+      if (trimmedSkill && !(cvInfo.skills || []).includes(trimmedSkill)) {
+        const updatedSkills = [...(cvInfo.skills || []), trimmedSkill];
+        setCvInfo({ ...cvInfo, skills: updatedSkills });
         setCurrSkill("");
       }
     }
   };
+
   return (
     <div id="skills--cont" className="input-cont">
       <p className="skills--desc">
@@ -30,6 +37,7 @@ function Skills({ cvInfo, setCvInfo }) {
         type="text"
         className="skills--input"
         placeholder="e.g. JavaScript"
+        value={currSkill}
         onChange={(e) => setCurrSkill(e.target.value)}
         onKeyDown={handleCommaPress}
       />

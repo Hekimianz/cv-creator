@@ -1,0 +1,26 @@
+.final--cont {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.back--btn {
+  margin-top: 20px;
+  width: 100px;
+  padding: 5px 10px;
+  font-weight: bold;
+  border: none;
+  background-color: var(--dark-blue);
+  border-radius: 4px;
+  color: var(--white);
+  cursor: pointer;
+  align-self: center;
+  transition: 0.2s all;
+}
+
+.back--btn:hover {
+  transform: scale(1.1);
+  border: 2px solid var(--dark-blue);
+  background-color: var(--gray);
+  color: var(--dark-blue);
+}

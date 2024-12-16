@@ -4,7 +4,8 @@ import add from "../assets/add.png";
 import Skills from "./Skills";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
-function Personal({ cvInfo, setCvInfo }) {
+import Language from "./Language";
+function Personal({ cvInfo, setCvInfo, setSubmitted }) {
   console.log(cvInfo);
   function addWork() {
     setCvInfo((prev) => ({
@@ -18,11 +19,27 @@ function Personal({ cvInfo, setCvInfo }) {
       education: [...(prev.education || []), { id: uuidv4() }],
     }));
   }
+
+  function addLang() {
+    setCvInfo((prev) => ({
+      ...prev,
+      languages: [...(prev.languages || []), { id: uuidv4() }],
+    }));
+  }
+
   const allWorks = cvInfo.works?.map((work) => (
     <WorkExp key={work.id} id={work.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
   ));
   const allEdu = cvInfo.education?.map((edu) => (
     <Education key={edu.id} id={edu.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
+  ));
+  const allLangs = cvInfo.languages?.map((lang) => (
+    <Language
+      key={lang.id}
+      id={lang.id}
+      cvInfo={cvInfo}
+      setCvInfo={setCvInfo}
+    />
   ));
   return (
     <div id="personal-cont">
@@ -112,9 +129,9 @@ function Personal({ cvInfo, setCvInfo }) {
         <textarea
           name="summary"
           id="summary"
-          value={cvInfo.address || ""}
+          value={cvInfo.summary || ""}
           onChange={(e) => {
-            setCvInfo({ ...cvInfo, address: e.target.value });
+            setCvInfo({ ...cvInfo, summary: e.target.value });
           }}
           placeholder="A brief overview (2-3 sentences) highlighting work experience, and career goals."
           cols={40}
@@ -125,17 +142,33 @@ function Personal({ cvInfo, setCvInfo }) {
       <h2>Skills</h2>
       <Skills cvInfo={cvInfo} setCvInfo={setCvInfo} />
 
+      <h2>Languages</h2>
+      <button className="add--btn" onClick={addLang}>
+        <img src={add} />
+      </button>
+      <div id="lang--cont">{allLangs}</div>
       <h2>Work Experience</h2>
-      <button className="addWork--btn" onClick={addWork}>
+      <button className="add--btn" onClick={addWork}>
         <img src={add} />
       </button>
       <div id="workExp--cont">{allWorks}</div>
 
       <h2>Education</h2>
-      <button className="addWork--btn" onClick={addEdu}>
+      <button className="add--btn" onClick={addEdu}>
         <img src={add} />
       </button>
       <div id="edu--cont">{allEdu}</div>
+
+      <h2>Certificates</h2>
+
+      <button
+        className="submit--btn"
+        onClick={() => {
+          setSubmitted(true);
+        }}
+      >
+        Generate CV
+      </button>
     </div>
   );
 }
