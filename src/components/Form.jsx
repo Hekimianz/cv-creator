@@ -1,7 +1,23 @@
 import "../styles/Form.css";
+import add from "../assets/add.png";
 import Skills from "./Skills";
+import WorkExp from "./WorkExp";
 function Personal({ cvInfo, setCvInfo }) {
   console.log(cvInfo);
+  function addWork() {
+    setCvInfo((prev) => ({
+      ...prev,
+      works: [...(prev.works || []), { id: Date.now() }],
+    }));
+  }
+  const allWorks = cvInfo.works?.map((work) => (
+    <WorkExp
+      key={Date.now()}
+      id={Date.now()}
+      cvInfo={cvInfo}
+      setCvInfo={setCvInfo}
+    />
+  ));
   return (
     <div id="personal-cont">
       <h2>Personal information</h2>
@@ -101,7 +117,13 @@ function Personal({ cvInfo, setCvInfo }) {
       </div>
 
       <h2>Skills</h2>
-      <Skills setCvInfo={setCvInfo} />
+      <Skills cvInfo={cvInfo} setCvInfo={setCvInfo} />
+
+      <h2>Work Experience</h2>
+      <button className="addWork--btn" onClick={addWork}>
+        <img src={add} />
+      </button>
+      <div id="workExp--cont">{allWorks}</div>
     </div>
   );
 }
