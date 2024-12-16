@@ -4,6 +4,7 @@ import add from "../assets/add.png";
 import Skills from "./Skills";
 import WorkExp from "./WorkExp";
 import Education from "./Education";
+import Certificate from "./Certificate";
 import Language from "./Language";
 function Personal({ cvInfo, setCvInfo, setSubmitted }) {
   console.log(cvInfo);
@@ -27,6 +28,13 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
     }));
   }
 
+  function addCert() {
+    setCvInfo((prev) => ({
+      ...prev,
+      certificates: [...(prev.certificates || []), { id: uuidv4() }],
+    }));
+  }
+
   const allWorks = cvInfo.works?.map((work) => (
     <WorkExp key={work.id} id={work.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
   ));
@@ -37,6 +45,15 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
     <Language
       key={lang.id}
       id={lang.id}
+      cvInfo={cvInfo}
+      setCvInfo={setCvInfo}
+    />
+  ));
+
+  const allCerts = cvInfo.certificates?.map((cert) => (
+    <Certificate
+      key={cert.id}
+      id={cert.id}
       cvInfo={cvInfo}
       setCvInfo={setCvInfo}
     />
@@ -160,6 +177,10 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
       <div id="edu--cont">{allEdu}</div>
 
       <h2>Certificates</h2>
+      <button className="add--btn" onClick={addCert}>
+        <img src={add} />
+      </button>
+      <div id="edu--cont">{allCerts}</div>
 
       <button
         className="submit--btn"

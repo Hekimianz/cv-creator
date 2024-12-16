@@ -35,7 +35,8 @@ label {
 .workField--cont input,
 .eduField--cont input,
 .langField--cont input,
-.langField--cont select {
+.langField--cont select,
+.certField--cont input {
   width: 60%;
 }
 
@@ -68,7 +69,8 @@ label {
 
 .workField--cont,
 .eduField--cont,
-.langField--cont {
+.langField--cont,
+.certField--cont {
   flex-direction: column;
   gap: 5px;
   background-color: var(--gray);
@@ -80,7 +82,8 @@ label {
 
 .deleteJob,
 .deleteEdu,
-.deleteLang {
+.deleteLang,
+.deleteCert {
   color: rgb(151, 75, 75);
   font-weight: 100;
   font-size: 1rem;
@@ -92,14 +95,16 @@ label {
 
 .deleteJob img,
 .deleteEdu img,
-.deleteLang img {
+.deleteLang img,
+.deleteCert img {
   width: 20px;
   transition: 0.2s all;
 }
 
 .deleteJob img:hover,
 .deleteEdu img:hover,
-.deleteLang img:hover {
+.deleteLang img:hover,
+.deleteCert img:hover {
   transform: scale(1.3);
 }
 
