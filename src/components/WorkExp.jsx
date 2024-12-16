@@ -2,7 +2,24 @@ import { useState } from "react";
 import "../styles/Form.css";
 import del from "../assets/delete.png";
 function WorkExp({ id, cvInfo, setCvInfo }) {
-  const [workInfo, setWorkInfo] = useState({});
+  const [workInfo, setWorkInfo] = useState({
+    ...cvInfo.works.find((work) => work.id === id),
+  });
+  const updateCvInfo = (updatedWork) => {
+    setCvInfo((prev) => ({
+      ...prev,
+      works: prev.works.map((work) =>
+        work.id === updatedWork.id ? updatedWork : work
+      ),
+    }));
+  };
+
+  const handleChange = (field, value) => {
+    const updatedWork = { ...workInfo, [field]: value };
+    setWorkInfo(updatedWork);
+    updateCvInfo(updatedWork);
+  };
+
   return (
     <div className="workField--cont">
       <label>
@@ -10,9 +27,7 @@ function WorkExp({ id, cvInfo, setCvInfo }) {
         <input
           type="text"
           value={workInfo.title || ""}
-          onChange={(e) => {
-            setWorkInfo({ ...workInfo, title: e.target.value });
-          }}
+          onChange={(e) => handleChange("title", e.target.value)}
         />
       </label>
       <label>
@@ -20,9 +35,7 @@ function WorkExp({ id, cvInfo, setCvInfo }) {
         <input
           type="text"
           value={workInfo.company || ""}
-          onChange={(e) => {
-            setWorkInfo({ ...workInfo, company: e.target.value });
-          }}
+          onChange={(e) => handleChange("company", e.target.value)}
         />
       </label>
       <label>
@@ -30,9 +43,7 @@ function WorkExp({ id, cvInfo, setCvInfo }) {
         <input
           type="date"
           value={workInfo.start || ""}
-          onChange={(e) => {
-            setWorkInfo({ ...workInfo, start: e.target.value });
-          }}
+          onChange={(e) => handleChange("start", e.target.value)}
         />
       </label>
       <label>
@@ -40,12 +51,18 @@ function WorkExp({ id, cvInfo, setCvInfo }) {
         <input
           type="date"
           value={workInfo.end || ""}
-          onChange={(e) => {
-            setWorkInfo({ ...workInfo, end: e.target.value });
-          }}
+          onChange={(e) => handleChange("end", e.target.value)}
         />
       </label>
-      <span className="deleteJob">
+      <span
+        className="deleteJob"
+        onClick={() => {
+          setCvInfo((prev) => ({
+            ...prev,
+            works: prev.works.filter((work) => work.id !== id),
+          }));
+        }}
+      >
         <img src={del} />
       </span>
     </div>

@@ -1,3 +1,4 @@
+import { v4 as uuidv4 } from "uuid";
 import "../styles/Form.css";
 import add from "../assets/add.png";
 import Skills from "./Skills";
@@ -7,16 +8,11 @@ function Personal({ cvInfo, setCvInfo }) {
   function addWork() {
     setCvInfo((prev) => ({
       ...prev,
-      works: [...(prev.works || []), { id: Date.now() }],
+      works: [...(prev.works || []), { id: uuidv4() }],
     }));
   }
   const allWorks = cvInfo.works?.map((work) => (
-    <WorkExp
-      key={Date.now()}
-      id={Date.now()}
-      cvInfo={cvInfo}
-      setCvInfo={setCvInfo}
-    />
+    <WorkExp key={work.id} id={work.id} cvInfo={cvInfo} setCvInfo={setCvInfo} />
   ));
   return (
     <div id="personal-cont">
