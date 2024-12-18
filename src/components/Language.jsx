@@ -41,6 +41,7 @@ function Language({ cvInfo, setCvInfo, id }) {
           <option value="2">Intermediate</option>
           <option value="3">Advanced</option>
           <option value="4">Fluent</option>
+          <option value="5">Native</option>
         </select>
       </label>
       <span

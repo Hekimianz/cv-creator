@@ -5,7 +5,7 @@
 }
 
 .back--btn {
-  margin-top: 20px;
+  margin: 40px 0;
   width: 100px;
   padding: 5px 10px;
   font-weight: bold;
@@ -23,4 +23,110 @@
   border: 2px solid var(--dark-blue);
   background-color: var(--gray);
   color: var(--dark-blue);
+}
+
+#profileHeader {
+  color: var(--white);
+  width: 100%;
+  height: 100px;
+  background-color: var(--dark-blue);
+  display: flex;
+  align-items: center;
+  padding-left: 15px;
+  justify-content: space-between;
+}
+
+#name--cont {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+#fullName {
+  font-size: 2rem;
+}
+
+#title {
+  font-size: 1.1rem;
+}
+
+#profilePic {
+  height: 100px;
+  width: 100px;
+  object-fit: cover;
+}
+
+#contactInfo {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  margin-top: 10px;
+  font-size: 1.1rem;
+}
+
+#contactInfo img {
+  width: 25px;
+}
+
+#contactInfo div {
+  display: flex;
+  align-items: center;
+  gap: 5px;
+}
+
+#professionalSummary,
+#coreSkills,
+#languages,
+#work,
+#education,
+#certificates {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+  width: 90%;
+}
+
+h2 {
+  border-bottom: 3px solid var(--yellow);
+  padding-bottom: 5px;
+  font-size: 1.7rem;
+  align-self: stretch;
+}
+
+#professionalSummary p {
+  font-size: 1.3rem;
+}
+
+#coreSkills ul li {
+  font-size: 1.3rem;
+  list-style-position: inside;
+}
+
+#coreSkills ul li::marker {
+  color: var(--dark-blue);
+}
+
+#coreSkills ul {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-self: center;
+  justify-items: center;
+  width: 100%;
+}
+
+.languageCircle {
+  width: 20px;
+}
+
+.language-cont {
+  font-size: 1.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 70%;
+}
+
+#languages {
+  align-items: center;
 }

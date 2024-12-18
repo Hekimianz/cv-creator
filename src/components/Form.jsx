@@ -88,14 +88,27 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
       </div>
 
       <div className="input-cont">
-        <label htmlFor="dob">Date of birth:</label>
+        <label htmlFor="title">Job title:</label>
         <input
-          name="dob"
-          id="dob"
-          type="date"
-          value={cvInfo.dob || ""}
+          name="title"
+          id="title"
+          type="text"
+          value={cvInfo.title || ""}
           onChange={(e) => {
-            setCvInfo({ ...cvInfo, dob: e.target.value });
+            setCvInfo({ ...cvInfo, title: e.target.value });
+          }}
+        />
+      </div>
+
+      <div className="input-cont">
+        <label htmlFor="pic">Upload picture:</label>
+        <input
+          name="pic"
+          id="pic"
+          type="file"
+          accept="image/*"
+          onChange={(e) => {
+            setCvInfo({ ...cvInfo, pic: e.target.files[0] });
           }}
         />
       </div>
@@ -150,7 +163,7 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
           onChange={(e) => {
             setCvInfo({ ...cvInfo, summary: e.target.value });
           }}
-          placeholder="A brief overview (2-3 sentences) highlighting work experience, and career goals."
+          placeholder="A brief overview highlighting work experience, and career goals."
           cols={40}
           rows={5}
         ></textarea>

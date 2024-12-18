@@ -8,7 +8,7 @@ function App() {
   const [submitted, setSubmitted] = useState(false);
   return (
     <>
-      <Navbar />
+      {submitted ? null : <Navbar />}
       <section id="inputs-cont">
         {!submitted ? (
           <Form
