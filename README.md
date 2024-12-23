@@ -34,28 +34,28 @@ Make sure you have the following installed:
 
 1. Clone the repository:
 
-´´´
+```
 git clone https://github.com/Hekimianz/cv-forge.git
 cd cv-forge
-´´´
+```
 
 2. Install dependencies:
 
-´´´
+```
 npm install
-´´´
+```
 
 3. Build the project:
 
-´´´
+```
 npm run build
-´´´
+```
 
 The app will be accessible at `http://localhost:3000`.
 
 ## Folder Structure
 
-´´´
+```
 cv-forge/
 ├── public/
 ├── src/
@@ -65,7 +65,7 @@ cv-forge/
 │ └── index.js # Entry point
 ├── package.json
 └── README.md
-´´´
+```
 
 ## Deployment
 
