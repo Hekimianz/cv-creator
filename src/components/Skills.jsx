@@ -1,5 +1,5 @@
 import { useState } from "react";
-import "../styles/Skills.css";
+import "../styles/skills.css";
 import SkillPill from "./SkillPill";
 
 function Skills({ cvInfo, setCvInfo }) {
