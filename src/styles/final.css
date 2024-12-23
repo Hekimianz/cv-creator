@@ -130,3 +130,23 @@ h2 {
 #languages {
   align-items: center;
 }
+
+.final--cont {
+  max-width: 1200px;
+}
+
+@media screen and (min-width: 1024px) {
+  #profileHeader {
+    padding: 0 100px;
+    height: 200px;
+  }
+
+  #profilePic {
+    width: 200px;
+    height: 200px;
+  }
+
+  #contactInfo {
+    margin: 20px 0;
+  }
+}
