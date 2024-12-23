@@ -59,7 +59,7 @@ function Final({ cvInfo, setSubmitted }) {
     return result;
   };
 
-  const renderWorks = works.map((work) => {
+  const renderWorks = works?.map((work) => {
     return (
       <div className="workCont">
         <h3>{work.title}</h3>
@@ -71,7 +71,7 @@ function Final({ cvInfo, setSubmitted }) {
     );
   });
 
-  const renderEdu = education.map((edu) => {
+  const renderEdu = education?.map((edu) => {
     return (
       <div className="eduCont">
         <h3>{edu.school}</h3>
@@ -81,7 +81,7 @@ function Final({ cvInfo, setSubmitted }) {
     );
   });
 
-  const renderCerts = certificates.map((cert) => {
+  const renderCerts = certificates?.map((cert) => {
     return (
       <div className="cert">
         <h3>{cert.name}</h3>
@@ -132,20 +132,26 @@ function Final({ cvInfo, setSubmitted }) {
         {renderLanguages}
       </section>
 
-      <section id="work">
-        <h2>Work Experience</h2>
-        {renderWorks}
-      </section>
+      {works ? (
+        <section id="work">
+          <h2>Work Experience</h2>
+          {renderWorks}
+        </section>
+      ) : null}
 
-      <section id="education">
-        <h2>Education</h2>
-        {renderEdu}
-      </section>
+      {education ? (
+        <section id="education">
+          <h2>Education</h2>
+          {renderEdu}
+        </section>
+      ) : null}
 
-      <section id="certificates">
-        <h2>Certificates</h2>
-        {renderCerts}
-      </section>
+      {certificates ? (
+        <section id="certificates">
+          <h2>Certificates</h2>
+          {renderCerts}
+        </section>
+      ) : null}
 
       <button
         className="back--btn"

@@ -198,7 +198,20 @@ function Personal({ cvInfo, setCvInfo, setSubmitted }) {
       <button
         className="submit--btn"
         onClick={() => {
-          setSubmitted(true);
+          if (
+            cvInfo.firstName &&
+            cvInfo.lastName &&
+            cvInfo.title &&
+            cvInfo.pic &&
+            cvInfo.email &&
+            cvInfo.phone &&
+            cvInfo.address &&
+            cvInfo.summary &&
+            cvInfo.languages &&
+            cvInfo.skills
+          ) {
+            setSubmitted(true);
+          }
         }}
       >
         Generate CV
